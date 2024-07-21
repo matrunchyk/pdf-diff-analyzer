@@ -1,0 +1,8 @@
+*.png
+*.pdf
+.DS_Store
+/venv
+/cache
+/baseline
+/changed
+/diff_pages
