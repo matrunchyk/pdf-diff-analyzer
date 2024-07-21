@@ -22,6 +22,7 @@ BLUE_UPPER_BOUND = np.array([255, 238, 218])  # Valid upper bound BGR
 KERNEL_SIZE = (35, 35)  # Kernel size for morphological operations
 EXPAND_BY = 10  # Number of pixels to expand bounding boxes by
 SIMILARITY_THRESHOLD = 0.7  # Threshold for determining similar texts
+OPENAI_MODEL = "gpt-4o-mini" # Any valid OpenAI model
 
 # Setup argument parser
 parser = argparse.ArgumentParser(description="PDF Difference Analyzer")
@@ -314,7 +315,7 @@ def find_component_name(summary_json, pdf_payload):
         return cached_response
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=OPENAI_MODEL,
         messages=[
             {"role": "user", "content": query}
         ],
